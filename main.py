@@ -12,13 +12,24 @@ from statsmodels.tsa.stattools import acovf,acf,pacf,pacf_yw,pacf_ols
 import warnings
 warnings.filterwarnings("ignore")
 
+import tkinter as tk
+
 class mclass:
 
     def __init__(self, window):
         self.box = Entry(window)
-        self.button = Button(window, text="check", command=self.plot5)
+        self.plotButton = Button(window, text="func_1", command=self.plot)
+        self.plotButton2 = Button(window, text="func_2", command=self.plot2)
+        self.plotButton3= Button(window, text="func_3", command=self.plot3)
+        self.plotButton4 = Button(window, text="func_4", command=self.plot4)
+        self.plotButton5 = Button(window, text="func_5", command=self.plot5)
+        
         self.box.pack()
-        self.button.pack()
+        self.plotButton.pack()
+        self.plotButton2.pack()
+        self.plotButton3.pack()
+        self.plotButton4.pack()
+        self.plotButton5.pack()
 
     def plot(self):
         df = pd.read_csv('data/airline_passengers.csv', index_col='Month', parse_dates=True)
@@ -103,5 +114,8 @@ class mclass:
 
 
 window = Tk()
+# TODO Zmeniń xD
+window.title('Karniak')
+window.geometry('600x800')
 start = mclass(window)
 window.mainloop()
